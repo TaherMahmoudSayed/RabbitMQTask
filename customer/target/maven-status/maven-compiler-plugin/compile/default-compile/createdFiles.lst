@@ -1,0 +1,8 @@
+com\microservice\configuration\CustomerConfiguration.class
+com\microservice\entity\Customer.class
+com\microservice\CustomerApplication.class
+com\microservice\controller\CustomerController.class
+com\microservice\repository\CustomerRepository.class
+com\microservice\requestResponceDTO\CustomerRegistrationRequestDTO.class
+com\microservice\service\CustomerService.class
+com\microservice\entity\Customer$CustomerBuilder.class

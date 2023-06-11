@@ -1,0 +1,56 @@
+services:
+  mssql:
+    container_name: mssqlV2
+    image: mcr.microsoft.com/mssql/server:latest
+    environment:
+      SA_PASSWORD : TaherTito123
+      ACCEPT_EULA: Y
+      MSSQL_PID : Express
+    restart: unless-stopped
+    ports:
+      - '1433:1433'
+    networks:
+      - mssql
+  mssqlV3:
+    container_name: mssqlV3
+    image: mcr.microsoft.com/mssql/server:latest
+    environment:
+      SA_PASSWORD: TaherTito123
+      ACCEPT_EULA: Y
+      MSSQL_PID: Express
+    restart: unless-stopped
+    ports:
+      - '1443:1433'
+  mssqlV4:
+    container_name: mssqlV4
+    image: mcr.microsoft.com/mssql/server:latest
+    environment:
+      SA_PASSWORD: TaherTito123
+      ACCEPT_EULA: Y
+      MSSQL_PID: Express
+    restart: unless-stopped
+    ports:
+      - '1444:1433'
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    ports:
+      - "9411:9411"
+    networks:
+      - spring
+  rabbitmq:
+      image: rabbitmq:3.9.11-management-alpine
+      container_name: rabbitmq
+      ports:
+        - "5672:5672"
+        - "15672:15672"
+      networks:
+        - spring
+
+
+networks:
+  mssql:
+    driver: bridge
+  spring:
+    driver: bridge
+

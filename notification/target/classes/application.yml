@@ -1,0 +1,35 @@
+server:
+    port: 8084
+spring:
+    application:
+        name: notification
+    datasource:
+        url: jdbc:sqlserver://localhost:1444;trustServerCertificate=true;databaseName=notification
+        username: sa
+        password: TaherTito123
+        driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    jpa:
+        database-platform: org.hibernate.dialect.SQLServerDialect
+        hibernate:
+            ddl-auto: create # or "create", "create-drop", "none"
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        show-sql: true # Set this to false in production
+
+    logging:
+        level:
+            org.hibernate: DEBUG
+            org.springframework.orm.jpa: DEBUG
+            org.springframework.transaction: DEBUG
+        file:
+            name: myapp.log
+            path: G:\javaProjects\we Projects\1stTask BWC\log\myapp.log
+    rabbitmq:
+        addresses: localhost:5672
+rabbitmq:
+    exchanges:
+        internal: internal.exchange
+    queues:
+        notification: notification.queue
+    routing-keys:
+        internal-notification: internal.notification.routing-key

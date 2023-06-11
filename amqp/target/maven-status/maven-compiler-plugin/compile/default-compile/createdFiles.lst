@@ -1,0 +1,2 @@
+com\microservice\amqp\RabbitMQConfiguration.class
+com\microservice\amqp\RabbitMQProducer.class
